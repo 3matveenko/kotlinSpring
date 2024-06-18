@@ -51,14 +51,11 @@ class SecurityConfig {
                 .passwordParameter("user_password")
         }
 
-
         http.logout { formLogout: LogoutConfigurer<HttpSecurity?> ->
             formLogout
                 .logoutUrl("/exit")
                 .logoutSuccessUrl("/login")
         }
-
-
 
         http.authorizeHttpRequests { authorize ->
             authorize.anyRequest().permitAll()

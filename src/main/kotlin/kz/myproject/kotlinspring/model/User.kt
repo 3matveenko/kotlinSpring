@@ -1,19 +1,21 @@
 package kz.myproject.kotlinspring.model
 
 import jakarta.persistence.*
+import lombok.NoArgsConstructor
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
+@NoArgsConstructor
 @Entity
 class User (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    var id: Long,
+    private var id: Long = 0L,
     @Column(name = "email")
-    var email:String,
+    var email:String = "",
     @Column(name = "password")
-    var pwd:String
+    var pwd:String = ""
 
 ):UserDetails{
     override fun getAuthorities(): MutableCollection<out GrantedAuthority>? {
